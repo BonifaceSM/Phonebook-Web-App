@@ -1,0 +1,23 @@
+﻿@model PhonebookApp.Models.Contact
+
+@{
+    ViewBag.Title = "Delete Contact";
+}
+
+<h2>Delete Contact</h2>
+
+<p>Are you sure you want to delete this contact?</p>
+
+<form asp-action="DeleteConfirmed">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group">
+        <label>Name:</label>
+        <input asp-for="Name" class="form-control" disabled />
+    </div>
+    <div class="form-group">
+        <label>Phone Number:</label>
+        <input asp-for="PhoneNumber" class="form-control" disabled />
+    </div>
+    <button type="submit" class="btn btn-danger">Delete</button>
+</form>

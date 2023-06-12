@@ -1,0 +1,32 @@
+﻿@model List<PhonebookApp.Models.Contact>
+
+@{
+    ViewBag.Title = "Phonebook";
+}
+
+<h2>Phonebook</h2>
+
+<p>
+    <a asp-action="Add" class="btn btn-primary">Add Contact</a>
+</p>
+
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Phone Number</th>
+        <th></th>
+    </tr>
+    @foreach (var contact in Model)
+    {
+        <tr>
+            <td>@contact.Id</td>
+            <td>@contact.Name</td>
+            <td>@contact.PhoneNumber</td>
+            <td>
+                <a asp-controller="Home" asp-action="Edit" asp-route-id="@contact.Id">Edit</a> |
+                <a asp-controller="Home" asp-action="Delete" asp-route-id="@contact.Id">Delete</a>
+            </td>
+        </tr>
+    }
+</table>
